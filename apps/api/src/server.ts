@@ -15,7 +15,7 @@ export const createServer = (): Express => {
       return res.json({ message: `hello ${req.params.name}` });
     })
     .get("/status", (_, res) => {
-      return res.json({ ok: true });
+      return res.json({ ok: true ,project:"Learning"});
     });
 
   return app;

@@ -14,9 +14,9 @@
     "lint": "turbo run lint",
     "test": "turbo run test"
   },
-  "dependencies": {},
   "devDependencies": {
     "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.16",
     "turbo": "^2.3.3"
   },
   "packageManager": "yarn@1.22.19",
