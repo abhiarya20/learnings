@@ -1,21 +1,21 @@
-name: Run Docker Compose
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Learnings
 
 on:
   push:
-    branches:
-      - main  # Trigger the workflow when there is a push to the main branch
+    branches: [ "main" ]
 
 jobs:
-  docker-compose:
-    runs-on: self-hosted  # Use your self-hosted runner
-
+  build:
+    runs-on: self-hosted
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Check out the repository
+        uses: actions/checkout@v4
 
       - name: Set up Docker
-        uses: docker/setup-buildx-action@v4  # Ensure that Docker is set up in the runner
+        uses: docker/setup-buildx-action@v4
 
       - name: Run Docker Compose
-        run: |
-          docker-compose up -d  # Run the docker-compose command
+        run: docker-compose up -d
