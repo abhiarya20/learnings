@@ -1,25 +1,21 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Learnings
+name: Run Docker Compose
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main  # Trigger the workflow when there is a push to the main branch
 
 jobs:
-  build:
-    runs-on: self-hosted
-    # strategy:
-    #   matrix:
-    #     node-version: [22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+  docker-compose:
+    runs-on: self-hosted  # Use your self-hosted runner
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Docker
-        uses: docker/setup-buildx-action@v4
-      # with:
-      #   node-version: ${{ matrix.node-version }}
-      #   cache: 'npm'
-    - run: sudo docker compose up -d
+      - name: Checkout code
+        uses: actions/checkout@v4  # Check out the repository
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v4  # Ensure that Docker is set up in the runner
+
+      - name: Run Docker Compose
+        run: |
+          docker-compose up -d  # Run the docker-compose command
