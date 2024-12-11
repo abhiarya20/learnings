@@ -1,12 +1,11 @@
 import path, { dirname } from "path"
 import { fileURLToPath } from 'url';
 import createMDX from '@next/mdx'
-import { NextConfig } from "next";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const nextConfig:NextConfig = {
+const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
   transpilePackages: ["@repo/ui"],
