@@ -25,4 +25,4 @@ jobs:
             ${{ runner.os }}-buildx-
 
       - name: Build and run Docker Compose
-        run: sudo docker compose up --build -d  # Run Docker Compose in detached mode
+        run: sudo docker compose up -d  # Run Docker Compose in detached mode
