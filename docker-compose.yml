@@ -34,6 +34,7 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
 
 # Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
+# with each other, by using their container name as a hostname  
 networks:
-  - learnings
+  learnings:
+    driver: bridge
